@@ -1,0 +1,32 @@
+@import "bootstrap/scss/_functions";
+@import "scss/_bootstrap-variables";
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: $spacer * 5;
+}
+
+.App-header {
+  background-color: $black;
+  height: 150px;
+  padding: 20px;
+  color: $white;
+}
+
+.App-title {
+  font-size: $font-size-lg;
+}
+
+.App-intro {
+  font-size: $font-size-sm;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
