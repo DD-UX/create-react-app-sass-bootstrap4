@@ -18,7 +18,7 @@ export default class App extends Component {
           <div className="row justify-content-around">
             <div className="col-6 col-md-4">
               <User/>
-              <UserButton className="mt-2">
+              <UserButton className="mt-2 btn-block">
                 Retrieve a new user
               </UserButton>
             </div>

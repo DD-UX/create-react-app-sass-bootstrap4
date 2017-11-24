@@ -1,0 +1,12 @@
+.btn__user {
+  position: relative;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important; }
+  .btn__user .btn__user__loader {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-0.5rem, 100%);
+    transition: all 0.2s ease-in-out; }
+  .btn__user.loading .btn__user__loader {
+    transform: translate(-0.5rem, -50%); }
