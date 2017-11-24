@@ -1,4 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was created with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## Implemented for:
+* [Redux](https://redux.js.org/docs/introduction/)
+* [ReactiveX](http://reactivex.io/)
+* [Redux Observable](https://redux-observable.js.org/docs/basics/Epics.html)
+* [Random User Generator](https://randomuser.me/)
+* [REST Countries](https://restcountries.eu/)
+
+## Styled with:
+* [Sass](http://sass-lang.com/)
+* [Bootstrap 4 beta 2](http://getbootstrap.com/)
+* [Font Awesome CDN (package way to be implemented)](http://fontawesome.io/)
+
+## Folder structure:
+
+```
+my-app/
+    README.md
+    node_modules/
+    package.json
+    public /
+    |- index.html
+    |- favicon.ico
+    src /
+    |- components /
+    |  |- app /
+    |  |    |- App.scss
+    |  |    |- App.js
+    |  |    |- App.test.js
+    |  |    |
+    |  |- user /
+    |  |    |- user-card /
+    |  |    |  |- UserCard.scss
+    |  |    |  |- UserCard.js
+    |  |    |  |- UserCard.test.js
+    |  |    |  |
+    |  |    |-user-button /
+    |  |    |  |- UserButton.scss
+    |  |    |  |- UserButton.js
+    |  |    |  |- UserButton.test.js
+    |  |    |- User.scss
+    |  |    |- User.js
+    |  |    |- User.test.js
+    |- epics /
+    |  |- user.epic.js
+    |
+    |- redux /
+    |  |- modules /
+    |  |  |- root.js
+    |  |- configureStore.js
+    |
+    |- scss /
+    |  |- _bootstrap-variables.scss
+    |
+    |- img /
+    |  |- logo.svg
+    |
+    |- index.js
+```
 
 Below you will find [Create React App](https://github.com/facebookincubator/create-react-app) information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).

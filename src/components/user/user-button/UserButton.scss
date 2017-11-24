@@ -1,0 +1,21 @@
+@import "bootstrap/scss/_functions";
+@import "scss/_bootstrap-variables";
+
+$prefix: ".btn__user";
+#{$prefix}{
+  position: relative;
+  padding-left: $spacer * 2!important;
+  padding-right: $spacer * 2!important;
+
+  & &__loader{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(($spacer * -0.5), 100%);
+    transition: $transition-base;
+  }
+
+  &[data-loading="true"] &__loader{
+    transform: translate(($spacer * -0.5), -50%);
+  }
+}
