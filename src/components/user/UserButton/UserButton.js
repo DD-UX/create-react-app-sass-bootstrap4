@@ -8,13 +8,14 @@ function stateProps (state) {
   }
 }
 
-class User extends Component {
+class UserButton extends Component {
   getUser () {
-    this.props.dispatch({type: 'GET_USER'});
+    this.props.dispatch({
+      type: 'GET_USER'
+    });
   }
 
   render() {
-
     return (
       <button
           className={`${this.props.className} btn btn-primary btn__user`}
@@ -32,6 +33,6 @@ class User extends Component {
   }
 }
 
-User = connect(stateProps)(User);
+UserButton = connect(stateProps)(UserButton);
 
-export default User;
+export default UserButton;

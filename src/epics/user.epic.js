@@ -1,34 +1,36 @@
-import "rxjs"; // eslint-disable-next-line
-import { ofType } from 'redux-observable'; // eslint-disable-next-line
-import { ajax } from 'rxjs/observable/dom/ajax'; // eslint-disable-next-line
-import { delay, mapTo } from 'rxjs/operators';
+import "rxjs";
+import { ajax } from 'rxjs/observable/dom/ajax';
 
 //getUser Epic
 export const getUserEpic = action$ =>
   action$
     .ofType('GET_USER')
-    .delay(1000)
-    .mapTo({
-      type: 'GOT_USER'
-    });
+    .mergeMap(action =>
+        ajax.getJSON('https://randomuser.me/api/')
+          .map(response => ({
+            type: 'GET_USER_FULFILLED',
+            user: response.results[0]
+          }))
+    );
 
 // user Reducer
 export const userReducer = (
     state = {
-      isLoading: false
+      isLoading: false,
+      user: {}
     },
     action
 ) => {
   switch (action.type) {
     case 'GET_USER':
       state.isLoading = true;
-      console.log(state);
-      return state;
-    case 'GOT_USER':
-      state.isLoading = false;
-      console.log(state);
-      return state;
 
+      return Object.assign({}, state);
+
+    case 'GET_USER_FULFILLED':
+      state.isLoading = false;
+
+      return Object.assign({}, state, action);
     default:
       return state;
   }

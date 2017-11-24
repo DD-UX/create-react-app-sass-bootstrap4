@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './User.css';
 
-export default class User extends Component {
+
+function stateProps (state) {
+  return {
+    state: state.userReducer
+  }
+}
+
+class User extends Component {
   render() {
+    let user = this.props.state.user;
     return (
       <div className={`${this.props.className} card`}>
         <img className="card-img-top" src="..." alt="Card" />
@@ -15,3 +24,7 @@ export default class User extends Component {
     );
   }
 }
+
+User = connect(stateProps)(User);
+
+export default User;
