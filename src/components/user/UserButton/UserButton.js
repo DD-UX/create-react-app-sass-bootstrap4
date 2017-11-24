@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './UserButton.css';
 
-export default class User extends Component {
+function stateProps (state) {
+  return {
+    state: state.userReducer
+  }
+}
+
+class User extends Component {
+  getUser () {
+    this.props.dispatch({type: 'GET_USER'});
+  }
+
   render() {
+
     return (
-      <button {...this.props} className={`${this.props.className} btn btn-primary btn__user`}>
+      <button
+          className={`${this.props.className} btn btn-primary btn__user`}
+          onClick={this.getUser.bind(this)}
+          disabled={this.props.state.isLoading}
+      >
         {this.props.children}
         <div className="btn__user__loader">
-          <i class="fa fa-spinner fa-pulse fa-fw"></i>
+          <i className="fa fa-spinner fa-pulse fa-fw">
+            <span className="sr-only">Loading...</span>
+          </i>
         </div>
       </button>
     );
   }
 }
+
+User = connect(stateProps)(User);
+
+export default User;

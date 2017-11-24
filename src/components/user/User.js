@@ -5,7 +5,7 @@ import './User.css';
 export default class User extends Component {
   render() {
     return (
-      <div {...this.props} className={`${this.props.className} card`}>
+      <div className={`${this.props.className} card`}>
         <img className="card-img-top" src="..." alt="Card" />
         <div className="card-body">
           <h4 className="card-title">Card title</h4>
