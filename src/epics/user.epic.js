@@ -17,7 +17,7 @@ export const getUserEpic = action$ =>
 export const userReducer = (
     state = {
       isLoading: false,
-      user: {}
+      user: null
     },
     action
 ) => {

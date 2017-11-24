@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as _ from 'lodash';
 
 import './User.css';
+
+import UserCard from './user-card/UserCard';
 
 
 function stateProps (state) {
@@ -13,13 +16,13 @@ function stateProps (state) {
 class User extends Component {
   render() {
     let user = this.props.state.user;
+    let userCard = !_.isNull(user)
+        ? <UserCard user={user} />
+        : '';
+
     return (
-      <div className={`${this.props.className} card`}>
-        <img className="card-img-top" src="..." alt="Card" />
-        <div className="card-body">
-          <h4 className="card-title">Card title</h4>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+      <div className={`${this.props.className}`}>
+        {userCard}
       </div>
     );
   }

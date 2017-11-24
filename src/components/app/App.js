@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import User from '../user/User.js'
-import UserButton from '../user/UserButton/UserButton'
+import UserButton from '../user/user-button/UserButton'
 
 import logo from '../../../src/img/logo.svg';
 import './App.css';
