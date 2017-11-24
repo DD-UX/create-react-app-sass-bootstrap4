@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import User from '../user/User.js'
+import UserButton from '../user/UserButton/UserButton'
 
 import logo from '../../../src/img/logo.svg';
 import './App.css';
@@ -17,6 +18,9 @@ export default class App extends Component {
           <div className="row justify-content-around">
             <div className="col-6 col-md-4">
               <User/>
+              <UserButton className="mt-2">
+                Retrieve a new user
+              </UserButton>
             </div>
           </div>
         </main>
