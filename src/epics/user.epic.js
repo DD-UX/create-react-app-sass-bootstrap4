@@ -6,11 +6,21 @@ export const getUserEpic = action$ =>
   action$
     .ofType('GET_USER')
     .mergeMap(action =>
-        ajax.getJSON('https://randomuser.me/api/')
-          .map(response => ({
-            type: 'GET_USER_FULFILLED',
-            user: response.results[0]
-          }))
+      ajax.getJSON('https://randomuser.me/api/?inc=gender,name,nat,location,email,picture')
+        .mergeMap(userAction => {
+          const user = userAction.results[0];
+
+          return ajax.getJSON(`https://restcountries.eu/rest/v2/alpha/${user.nat}`)
+            .map(response => {
+              // Assign full name of country to the user
+              user.country = response.name;
+
+              return ({
+                type: 'GET_USER_FULFILLED',
+                user: user
+              })
+            })
+        })
     );
 
 // user Reducer

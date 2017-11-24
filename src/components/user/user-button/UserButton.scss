@@ -15,7 +15,7 @@ $prefix: ".btn__user";
     transition: $transition-base;
   }
 
-  &.loading &__loader{
+  &[data-loading="true"] &__loader{
     transform: translate(($spacer * -0.5), -50%);
   }
 }

@@ -14,6 +14,14 @@ function stateProps (state) {
 }
 
 class User extends Component {
+
+  constructor (props){
+    super();
+    props.dispatch({
+      type: 'GET_USER'
+    });
+  }
+
   render() {
     let user = this.props.state.user;
     let userCard = !_.isNull(user)

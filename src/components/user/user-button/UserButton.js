@@ -21,6 +21,7 @@ class UserButton extends Component {
           className={`${this.props.className} btn btn-primary btn__user`}
           onClick={this.getUser.bind(this)}
           disabled={this.props.state.isLoading}
+          data-loading={this.props.state.isLoading}
       >
         {this.props.children}
         <div className="btn__user__loader">
