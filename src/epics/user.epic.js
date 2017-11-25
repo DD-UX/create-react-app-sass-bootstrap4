@@ -1,25 +1,32 @@
 import "rxjs";
 import { ajax } from 'rxjs/observable/dom/ajax';
 
-//getUser Epic
+
+const getUserCountry = user => ({type: 'GET_USER_COUNTRY', user });
+
+// getUser Epic
 export const getUserEpic = action$ =>
   action$
     .ofType('GET_USER')
     .mergeMap(action =>
-      ajax.getJSON('https://randomuser.me/api/?inc=gender,name,nat,location,email,picture')
-        .mergeMap(userAction => {
-          const user = userAction.results[0];
+        ajax.getJSON('https://randomuser.me/api/?inc=gender,name,nat,location,email,picture')
+        .map(response => getUserCountry(response.results[0]))
+    );
 
-          return ajax.getJSON(`https://restcountries.eu/rest/v2/alpha/${user.nat}`)
-            .map(response => {
-              // Assign full name of country to the user
-              user.country = response.name;
+// getUserCountry Epic
+export const getUserCountryEpic = action$ =>
+  action$
+    .ofType('GET_USER_COUNTRY')
+    .mergeMap(payload =>
+      ajax.getJSON(`https://restcountries.eu/rest/v2/alpha/${payload.user.nat}`)
+        .map(response => {
+          // Assign full name of country to the user
+          payload.user.country = response.name;
 
-              return ({
-                type: 'GET_USER_FULFILLED',
-                user: user
-              })
-            })
+          return ({
+            type: 'GET_USER_FULFILLED',
+            user: payload.user
+          });
         })
     );
 
