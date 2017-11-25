@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserButton from './UserButton';
+import About from './About';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<UserButton />, div);
+  ReactDOM.render(<About />, div);
 });

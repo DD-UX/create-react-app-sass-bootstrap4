@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './UserCard.css';
 
 function stateProps (state) {
-  return {}
+  return {};
 }
 
 class UserCard extends Component {
