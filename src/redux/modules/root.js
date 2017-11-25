@@ -1,11 +1,12 @@
 // Create actions and stores
 import { combineEpics } from 'redux-observable';
 import { combineReducers } from 'redux';
-import { getUserEpic, userReducer } from "../../epics/user.epic";
+import { getUserEpic, getUserCountryEpic, userReducer } from "../../epics/user.epic";
 
 // Merge epics
 export const rootEpic = combineEpics(
-    getUserEpic
+  getUserEpic,
+  getUserCountryEpic
 );
 
 // Merge reducers
