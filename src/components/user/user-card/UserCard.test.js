@@ -1,8 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import UserButton from './UserButton';
+import UserCard from './UserCard';
+
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<UserButton />, div);
+  ReactDOM.render(<UserCard />, div);
 });
