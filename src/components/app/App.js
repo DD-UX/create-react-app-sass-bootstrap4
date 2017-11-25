@@ -20,7 +20,10 @@ export default class App extends Component {
             <div className="col-10 col-sm-6 col-md-4 col-lg-3 col-xl-2 order-md-1">
               <User/>
               <UserButton className="mt-2 btn-block">
-                Retrieve a new user
+                <i className="fa fa-user-circle mr-2">
+                  <span className="sr-only">New profile</span>
+                </i>
+                New profile
               </UserButton>
             </div>
             <article className="col-10 col-sm-6 col-md-8 mt-4 mt-sm-0">

@@ -18,7 +18,7 @@ class UserButton extends Component {
   render() {
     return (
       <button
-          className={`${this.props.className} btn btn-primary btn__user`}
+          className={`${this.props.className} btn btn-primary btn__user text-truncate`}
           onClick={this.getUser.bind(this)}
           disabled={this.props.state.isLoading}
           data-loading={this.props.state.isLoading}

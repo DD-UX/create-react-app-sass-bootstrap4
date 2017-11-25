@@ -12,7 +12,7 @@ export default class About extends Component {
           from an API.
         </p>
         <p>
-          Want more server-side iteraction? hit the "Retrieve a new user" button
+          Want more server-side iteraction? hit the "New profile" button
           and check the network. That's all it does.
         </p>
         <p>
